@@ -1,26 +1,70 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/* 基本のダークテーマを固定 */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+  color: #fff;
+  font-family:
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
+  min-height: 100vh;
+  margin: 0;
 }
+
+/* スライドショー用の最小スタイル */
+.sl-wrap {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sl-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  will-change: transform;
+  cursor: grab;
+  user-select: none;
+}
+
+.sl-img.dragging {
+  cursor: grabbing;
+}
+
+.sl-caption {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 16px 24px;
+  background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.6));
+  font-size: 16px;
+}
+
+.sl-caption b {
+  font-size: 18px;
+}
+
+.sl-fsbtn {
+  position: fixed;
+  top: 12px;
+  right: 12px;
+  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: #222;
+  color: #fff;
+  cursor: pointer;
+}
+
