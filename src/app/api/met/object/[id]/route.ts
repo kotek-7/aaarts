@@ -1,3 +1,5 @@
+export const runtime = "nodejs";
+
 function objectUrl(id: string) {
   return `https://collectionapi.metmuseum.org/public/collection/v1/objects/${encodeURIComponent(id)}`;
 }
@@ -26,8 +28,8 @@ async function fetchWithRetry(url: string, init: RequestInit = {}, retries = 2, 
   throw lastErr;
 }
 
-export async function GET(_req: Request, ctx: { params: Promise<{ id: string }> }) {
-  const { id } = await ctx.params;
+export async function GET(_req: Request, ctx: { params: { id: string } }) {
+  const { id } = ctx.params;
   if (!id) {
     return new Response(JSON.stringify({ error: "Missing id" }), {
       status: 400,
