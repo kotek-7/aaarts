@@ -11,9 +11,8 @@ type MetObject = {
 };
 
 const MET = {
-  search:
-    "https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&isPublicDomain=true&q=painting",
-  object: (id: number) => `https://collectionapi.metmuseum.org/public/collection/v1/objects/${id}`,
+  search: "/api/met/search",
+  object: (id: number) => `/api/met/object/${id}`,
 };
 
 export default function MasterpiecesSlideshow() {
@@ -290,4 +289,3 @@ export default function MasterpiecesSlideshow() {
     </div>
   );
 }
-
