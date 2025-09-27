@@ -40,7 +40,7 @@ export async function GET(_req: Request, ctx: { params: Promise<{ id: string }> 
     const ct = r.headers.get("content-type") || "application/json; charset=utf-8";
     headers.set("content-type", ct);
     return new Response(r.body, { status: r.status, headers });
-  } catch (e) {
+  } catch {
     return new Response(JSON.stringify({ error: "Failed to fetch object" }), {
       status: 502,
       headers: { "content-type": "application/json; charset=utf-8" },

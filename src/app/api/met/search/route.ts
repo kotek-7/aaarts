@@ -34,11 +34,10 @@ export async function GET() {
     const ct = r.headers.get("content-type") || "application/json; charset=utf-8";
     headers.set("content-type", ct);
     return new Response(r.body, { status: r.status, headers });
-  } catch (e) {
+  } catch {
     return new Response(JSON.stringify({ error: "Failed to fetch from MET search" }), {
       status: 502,
       headers: { "content-type": "application/json; charset=utf-8" },
     });
   }
 }
-
