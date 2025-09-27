@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 const SEARCH_URL =
   "https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&isPublicDomain=true&q=painting";
 
@@ -41,3 +43,4 @@ export async function GET() {
     });
   }
 }
+

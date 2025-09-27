@@ -1,3 +1,5 @@
+export const runtime = "edge";
+
 function objectUrl(id: string) {
   return `https://collectionapi.metmuseum.org/public/collection/v1/objects/${encodeURIComponent(id)}`;
 }
